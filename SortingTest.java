@@ -80,7 +80,7 @@ public class SortingTest {
 
     ///////////////////////////////////////////////////////////////////////////
 
-    private static void mySorting(double[] x) {
+    public static void mySorting(double[] x) {
 
         var a = new ArrayList<Double>();
 
