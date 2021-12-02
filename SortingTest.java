@@ -80,7 +80,7 @@ public class SortingTest {
 
     ///////////////////////////////////////////////////////////////////////////
 
-    public static void mySorting(double[] x) {
+    private static void mySorting(double[] x) {
 
         var a = new ArrayList<Double>();
 
@@ -94,7 +94,7 @@ public class SortingTest {
             int lowerBoundIndex = 0;
             int midIndex = a.size() / 2;
 
-            outerLoop: for
+            innerLoop: for
             (int j = 0; j <= (Math.log(a.size()) / Math.log(2)); j++) {
 
                 // check if the number fits in left half
@@ -102,7 +102,7 @@ public class SortingTest {
 
                     if (midIndex > lowerBoundIndex && a.get(midIndex - 1) <= x[i]) {
                         sortedIndex = midIndex;
-                        break outerLoop;
+                        break innerLoop;
                     }
 
                     upperBoundIndex = midIndex;
@@ -113,11 +113,11 @@ public class SortingTest {
 
                         if (a.get(lowerBoundIndex) >= x[i]) {
                             sortedIndex = 0;
-                            break outerLoop;
+                            break innerLoop;
                         }
                         else {
                             sortedIndex = 1;
-                            break outerLoop;
+                            break innerLoop;
                         }
                     }
                 }
@@ -126,7 +126,7 @@ public class SortingTest {
 
                     if (midIndex < upperBoundIndex && a.get(midIndex + 1) >= x[i]) {
                         sortedIndex = midIndex + 1;
-                        break outerLoop;
+                        break innerLoop;
                     }
 
                     lowerBoundIndex = midIndex;
@@ -137,11 +137,11 @@ public class SortingTest {
 
                         if (a.get(upperBoundIndex) <= x[i]) {
                             sortedIndex = a.size();
-                            break outerLoop;
+                            break innerLoop;
                         }
                         else {
                             sortedIndex = upperBoundIndex - 1;
-                            break outerLoop;
+                            break innerLoop;
 
                         }
                     }
@@ -150,7 +150,7 @@ public class SortingTest {
                 else {
 
                     sortedIndex = midIndex;
-                    break outerLoop;
+                    break innerLoop;
                 }
             }
 
